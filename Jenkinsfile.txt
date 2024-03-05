@@ -3,7 +3,7 @@ pipeline {
     agent any
     tools {
            nodejs "16"
-	   gradle "5"
+	   gradle "4.9"
      }
 
     environment {
@@ -15,13 +15,14 @@ pipeline {
       stage('NPM Install') {
          steps {
             echo 'execute cmd ...'
-            bat "npm install"
+            //bat "npm install"
          }
       }
 
 stage('Sync') {
   steps {
-   bat "npx ionic cap sync"
+echo 'ki'
+  // bat "npx ionic cap sync"
 }
 }
 
@@ -30,7 +31,7 @@ stage('Sync') {
           steps {
             // sh 'ionic cordova build ios --release'
              echo "iOS"
-             bat "npx ionic build --prod"
+          //   bat "npx ionic build --prod"
           }
        }
 

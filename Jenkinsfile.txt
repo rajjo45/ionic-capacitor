@@ -19,6 +19,12 @@ pipeline {
          }
       }
 
+stage('Sync') {
+  steps {
+   bat "npx ionic cap sync"
+}
+}
+
 
        stage('IOS Build') {
           steps {

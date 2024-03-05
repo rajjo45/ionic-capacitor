@@ -15,22 +15,16 @@ pipeline {
       stage('NPM Install') {
          steps {
             echo 'execute cmd ...'
-            bat "npm install"
+            //bat "npm install"
          }
       }
 
- // stage('NPM Audit') {
-   //      steps {
-     //       echo 'execute cmd ...'
-       //     bat "npm audit fix --force"
-        // }
-      //}
 
        stage('IOS Build') {
           steps {
             // sh 'ionic cordova build ios --release'
              echo "iOS"
-             bat "npx ionic build --prod"
+           //  bat "npx ionic build --prod"
           }
        }
 
@@ -39,56 +33,57 @@ stage('IOS Build1') {
             // sh 'ionic cordova build ios --release'
              echo "iOS"
              //bat "npx ionic capacitor open android"
-		bat "npx ionic cap build android --no-open && cd android && gradle assembleDebug && gradle assembleRelease"
+		//bat "npx ionic cap build android --no-open && cd android && gradle assembleDebug && gradle assembleRelease"
+bat "npx ionic cap copy android && cd android && ./gradlew assembleDebug && cd .."
           }
        }
 
 
-       stage('Android Build') {
-          steps {
+       //stage('Android Build') {
+       //   steps {
               // sh 'ionic cordova build android --release'
-               echo "Android"
-          }
-       }
+        //       echo "Android"
+       //   }
+     //  }
 
-       stage('APK Sign') {
-          steps {
+    //   stage('APK Sign') {
+   //       steps {
             // sh 'jarsigner -storepass your_password -keystore keys/yourkey.keystore platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk nameApp'
-              echo "Android"
-          }
-       }
+      //        echo "Android"
+   //       }
+   //    }
 
-       stage('Android Release') {
-          steps {
+     //  stage('Android Release') {
+    //      steps {
               // sh 'mv platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk release/wall.apk'
-               echo "Android"
-          }
-       }
+       //        echo "Android"
+    //      }
+     //  }
 
 
-      stage('Stage Web Build') {
-          steps {
-              sh 'npm run build --prod'
-          }
-       }
+   //   stage('Stage Web Build') {
+    //      steps {
+    //          sh 'npm run build --prod'
+    //      }
+   //    }
 
-         stage('Publish Firebase Web') {
-          steps {
-              sh 'firebase deploy --token "YourTokenKey"'
-          }
-       }
+  //       stage('Publish Firebase Web') {
+  //        steps {
+     //         sh 'firebase deploy --token "YourTokenKey"'
+     //     }
+   //    }
 
-        stage('Publish iOS') {
-          steps {   
-              echo "Publish iOS"
-          }
-       }
+   //     stage('Publish iOS') {
+   //       steps {   
+   //           echo "Publish iOS"
+   //       }
+   //    }
 
-        stage('Publish Android') {
-          steps {
-              echo "Publish Android"
-          }
-       }
+   //     stage('Publish Android') {
+   //       steps {
+    //          echo "Publish Android"
+  //        }
+ //      }
 
 
 }

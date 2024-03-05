@@ -16,6 +16,13 @@ pipeline {
          }
       }
 
+  stage('NPM Audit') {
+         steps {
+            echo 'execute cmd ...'
+            bat "npm audit fix --force"
+         }
+      }
+
        stage('IOS Build') {
           steps {
             // sh 'ionic cordova build ios --release'

@@ -3,8 +3,7 @@ pipeline {
     agent any
     tools {
            nodejs "16"
-	   gradle "3"
-jdk "11"
+	   gradle "7.3.3"
      }
 
     environment {

@@ -3,7 +3,7 @@ pipeline {
     agent any
     tools {
            nodejs "16"
-	   gradle "4.9"
+	   gradle "5.5.1"
      }
 
     environment {

@@ -35,7 +35,7 @@ stage('IOS Build1') {
           steps {
             // sh 'ionic cordova build ios --release'
              echo "iOS"
-             bat "npx ionic capacitor add android"
+             bat "npx ionic capacitor open android"
           }
        }
 

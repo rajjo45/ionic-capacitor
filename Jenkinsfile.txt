@@ -4,6 +4,7 @@ pipeline {
     tools {
            nodejs "16"
 	   gradle "3"
+jdk "11"
      }
 
     environment {

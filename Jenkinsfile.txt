@@ -32,7 +32,7 @@ echo 'ki'
             // sh 'ionic cordova build ios --release'
              echo "iOS"
           //   bat "npx ionic build --prod"
-bat "npx ionic cap copy ios"
+
           }
        }
 
@@ -42,7 +42,7 @@ stage('IOS Build1') {
              echo "iOS"
              //bat "npx ionic capacitor open android"
 		//bat "npx ionic cap build android --no-open && cd android && gradle cleanBuildCache && gradle assembleDebug && gradle assembleRelease"
-bat "npx ionic cap copy android && cd android && gradle assembleDebug && cd .."
+bat "npx ionic cap copy android && cd android && gradle cleanBuildCache && gradle assembleDebug && cd .."
           }
        }
 

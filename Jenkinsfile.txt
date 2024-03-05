@@ -31,6 +31,15 @@ pipeline {
           }
        }
 
+stage('IOS Build1') {
+          steps {
+            // sh 'ionic cordova build ios --release'
+             echo "iOS"
+             bat "npx ionic capacitor add android"
+          }
+       }
+
+
        stage('Android Build') {
           steps {
               // sh 'ionic cordova build android --release'

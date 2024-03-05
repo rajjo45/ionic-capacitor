@@ -36,7 +36,7 @@ stage('IOS Build1') {
             // sh 'ionic cordova build ios --release'
              echo "iOS"
              //bat "npx ionic capacitor open android"
-		bat "ionic cap build android --no-open && cd android && gradle assembleDebug && gradle assembleRelease"
+		bat "npx ionic cap build android --no-open && cd android && gradle assembleDebug && gradle assembleRelease"
           }
        }
 

@@ -1,7 +1,10 @@
 pipeline {
 
     agent any
-    tools {nodejs "16"}
+    tools {
+           nodejs "16"
+	   gradle "gradle"
+     }
 
     environment {
         PATH='C://Program Files//nodejs;c:\\Windows\\System32' 

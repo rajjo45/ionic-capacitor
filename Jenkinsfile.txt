@@ -1,7 +1,7 @@
 pipeline {
 
     agent any
-    tools {nodejs "20"}
+    tools {nodejs "21"}
 
     environment {
         PATH='C://Program Files//nodejs;c:\\Windows\\System32' 
@@ -16,12 +16,12 @@ pipeline {
          }
       }
 
-  stage('NPM Audit') {
-         steps {
-            echo 'execute cmd ...'
-            bat "npm audit fix --force"
-         }
-      }
+ // stage('NPM Audit') {
+   //      steps {
+     //       echo 'execute cmd ...'
+       //     bat "npm audit fix --force"
+        // }
+      //}
 
        stage('IOS Build') {
           steps {

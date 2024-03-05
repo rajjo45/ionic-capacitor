@@ -1,6 +1,7 @@
 pipeline {
 
     agent any
+    tools {nodejs "20"}
 
     environment {
         PATH='C://Program Files//nodejs;c:\\Windows\\System32' 

@@ -22,7 +22,7 @@ pipeline {
 stage('Sync') {
   steps {
 echo 'ki'
-  // bat "npx ionic cap sync"
+   bat "npx ionic cap sync"
 }
 }
 

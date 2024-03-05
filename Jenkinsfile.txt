@@ -20,7 +20,7 @@ pipeline {
           steps {
             // sh 'ionic cordova build ios --release'
              echo "iOS"
-             bat "ionic build --prod"
+             bat "npx ionic build --prod"
           }
        }
 

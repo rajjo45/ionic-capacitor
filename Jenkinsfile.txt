@@ -11,49 +11,48 @@ pipeline {
 	PATH='/Users/awc-110812/bin:/usr/bin:/bin'
 	}
 
- stages {
-
+    stages {
       stage('NPM Install') {
          steps {
             echo 'execute cmd ...'
-            sh 'npm install'
+            //sh 'npm install'
          }
       }
 
-stage('Sync') {
-  steps {
-echo 'ki'
- //  bat "npx ionic cap sync"
-}
-}
+	stage('Sync') {
+  		steps {
+		echo 'ki'
+ 		//bat "npx ionic cap sync"
+	 }
+      }
 
 
        stage('IOS Build') {
           steps {
-             sh 'npx ionic build ios --release'
+             // sh 'npx ionic build ios --release'
              echo "iOS"
              // bat "npx ionic build --debug"
 
           }
        }
 
-stage('IOS Build1') {
+	stage('IOS Build1') {
           steps {
             // sh 'ionic cordova build ios --release'
              echo "iOS"
              //bat "npx ionic capacitor open android"
-	//	bat "npx ionic cap build android && cd android && gradle cleanBuildCache && gradle assembleDebug && cd"
-bat "npx ionic cap copy android && cd android  && gradle assembleDebug && cd .."
+	     //bat "npx ionic cap build android && cd android && gradle cleanBuildCache && gradle assembleDebug && cd"
+             //bat "npx ionic cap copy android && cd android  && gradle assembleDebug && cd .."
           }
        }
 
 
-       //stage('Android Build') {
-       //   steps {
-              // sh 'ionic cordova build android --release'
-        //       echo "Android"
-       //   }
-     //  }
+       stage('Android Build') {
+          steps {
+               sh 'ionic capacitor build android'
+               echo "Android"
+          }
+       }
 
     //   stage('APK Sign') {
    //       steps {

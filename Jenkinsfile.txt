@@ -50,7 +50,7 @@ stage('IOS Build1') {
              //bat "npx ionic capacitor open android"
 		//bat "npx ionic cap build android --no-open && cd android && gradle cleanBuildCache && gradle assembleDebug && cd.."
 ///bat "npx ionic cap copy android && cd android && gradle cleanBuildCache && gradle assembleDebug && cd .."
-bat cd android && gradle clean assembleDebug && cd
+bat "cd android && gradle clean assembleDebug && cd"
           }
        }
 

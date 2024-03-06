@@ -4,7 +4,7 @@ pipeline {
     tools {
            nodejs "16"
 	   gradle "5.5.1"
-}
+     }
 
     environment {
         PATH='C://Program Files//nodejs;c:\\Windows\\System32' 
@@ -12,15 +12,23 @@ pipeline {
 
  stages {
 
+stage('NPM Instal1l') {
+         steps {
+            echo 'execute cmd ...'
+            bat "npm cache clean"
+         }
+      }
+
       stage('NPM Install') {
          steps {
             echo 'execute cmd ...'
-            //bat "npm install"
+            bat "npm install"
          }
       }
 
 stage('Sync') {
   steps {
+echo 'ki'
    bat "npx ionic cap sync"
 }
 }
@@ -30,7 +38,8 @@ stage('Sync') {
           steps {
             // sh 'ionic cordova build ios --release'
              echo "iOS"
-           //  bat "npx ionic build --prod"
+             bat "npx ionic build --prod"
+
           }
        }
 
@@ -39,8 +48,8 @@ stage('IOS Build1') {
             // sh 'ionic cordova build ios --release'
              echo "iOS"
              //bat "npx ionic capacitor open android"
-		//bat "npx ionic cap build android --no-open && cd android && gradle assembleDebug && gradle assembleRelease"
-bat "npx ionic cap copy android && cd android && gradle assembleDebug && cd .."
+		bat "npx ionic cap build android --no-open && cd android && gradle cleanBuildCache && gradle assembleDebug && gradle assembleRelease"
+///bat "npx ionic cap copy android && cd android && gradle cleanBuildCache && gradle assembleDebug && cd .."
           }
        }
 

@@ -15,7 +15,7 @@ pipeline {
 stage('NPM Instal1l') {
          steps {
             echo 'execute cmd ...'
-            bat "npm cache clean"
+            bat "npm cache clean --force"
          }
       }
 

@@ -10,7 +10,7 @@ pipeline {
         PATH='C://Program Files//nodejs;c:\\Windows\\System32' 
 
     
-    GRADLE_CACHE = 'C://tmp'
+    GRADLE_USER_HOME = 'C://tmp'
   
 	}
 

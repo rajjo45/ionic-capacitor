@@ -15,23 +15,23 @@ pipeline {
 stage('NPM Instal1l') {
          steps {
             echo 'execute cmd ...'
-            bat "npm cache clean --force"
+            bat 'npm cache clean --force'
          }
       }
 
       stage('NPM Install') {
          steps {
             echo 'execute cmd ...'
-            bat "npm install"
+            bat 'npm install'
          }
       }
 
-stage('Sync') {
-  steps {
-echo 'ki'
-   bat "npx ionic cap sync"
-}
-}
+//stage('Sync') {
+  //steps {
+//echo 'ki'
+  // bat "npx ionic cap sync"
+//}
+//}
 
 
        stage('IOS Build') {

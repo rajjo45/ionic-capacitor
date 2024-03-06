@@ -7,7 +7,8 @@ pipeline {
      }
 
     environment {
-        PATH='C://Program Files//nodejs;c:\\Windows\\System32' 
+        // PATH='C://Program Files//nodejs;c:\\Windows\\System32' 
+	PATH='/Users/awc-110812/bin:/usr/bin:/bin'
 	}
 
  stages {
@@ -15,7 +16,7 @@ pipeline {
       stage('NPM Install') {
          steps {
             echo 'execute cmd ...'
-           // bat "npm install"
+            sh 'npm install'
          }
       }
 
@@ -29,9 +30,9 @@ echo 'ki'
 
        stage('IOS Build') {
           steps {
-            // sh 'ionic cordova build ios --release'
+             sh 'npx ionic build ios --release'
              echo "iOS"
-             bat "npx ionic build --debug"
+             // bat "npx ionic build --debug"
 
           }
        }
@@ -41,7 +42,7 @@ stage('IOS Build1') {
             // sh 'ionic cordova build ios --release'
              echo "iOS"
              //bat "npx ionic capacitor open android"
-	//	bat "npx ionic cap build android --no-open && cd android && gradle cleanBuildCache && gradle assembleDebug && cd"
+	//	bat "npx ionic cap build android && cd android && gradle cleanBuildCache && gradle assembleDebug && cd"
 bat "npx ionic cap copy android && cd android  && gradle assembleDebug && cd .."
           }
        }

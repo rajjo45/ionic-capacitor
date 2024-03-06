@@ -4,6 +4,7 @@ pipeline {
     tools {
            nodejs "16"
 	   gradle "5.5.1"
+}
 
     environment {
         PATH='C://Program Files//nodejs;c:\\Windows\\System32' 

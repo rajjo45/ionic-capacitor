@@ -49,7 +49,7 @@ pipeline {
 
        stage('Android Build') {
           steps {
-               sh 'ionic capacitor build android'
+               sh 'npx ionic capacitor build android'
                echo "Android"
           }
        }

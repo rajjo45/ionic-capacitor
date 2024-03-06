@@ -12,17 +12,17 @@ pipeline {
 
  stages {
 
-stage('NPM Instal1l') {
-         steps {
-            echo 'execute cmd ...'
-            bat "npm cache clean"
-         }
-      }
+//stage('NPM Instal1l') {
+  //       steps {
+    //        echo 'execute cmd ...'
+      //      bat "npm cache clean"
+        // }
+      //}
 
       stage('NPM Install') {
          steps {
             echo 'execute cmd ...'
-            bat "npm install"
+            bat "npm install --cache /tmp/empty-cache"
          }
       }
 

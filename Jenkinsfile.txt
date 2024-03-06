@@ -8,6 +8,10 @@ pipeline {
 
     environment {
         PATH='C://Program Files//nodejs;c:\\Windows\\System32' 
+
+    
+    GRADLE_CACHE = 'C://tmp'
+  
 	}
 
  stages {

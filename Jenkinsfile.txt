@@ -3,7 +3,7 @@ pipeline {
     agent any
     tools {
            nodejs "16"
-	   gradle "5.5.1"
+	   gradle "7.3.3"
      }
 
     environment {
@@ -12,34 +12,25 @@ pipeline {
 
  stages {
 
-stage('NPM Instal1l') {
-         steps {
-            echo 'execute cmd ...'
-            bat 'npm cache clean --force'
-         }
-      }
-
       stage('NPM Install') {
          steps {
             echo 'execute cmd ...'
-            bat 'npm install'
+            //bat "npm install"
          }
       }
 
-//stage('Sync') {
-  //steps {
-//echo 'ki'
-  // bat "npx ionic cap sync"
-//}
-//}
+stage('Sync') {
+  steps {
+   bat "npx ionic cap sync"
+}
+}
 
 
        stage('IOS Build') {
           steps {
             // sh 'ionic cordova build ios --release'
              echo "iOS"
-             bat "npx ionic build --prod"
-
+           //  bat "npx ionic build --prod"
           }
        }
 
@@ -48,8 +39,8 @@ stage('IOS Build1') {
             // sh 'ionic cordova build ios --release'
              echo "iOS"
              //bat "npx ionic capacitor open android"
-		bat "npx ionic cap build android --no-open && cd android && gradle cleanBuildCache && gradle assembleDebug && gradle assembleRelease"
-///bat "npx ionic cap copy android && cd android && gradle cleanBuildCache && gradle assembleDebug && cd .."
+		//bat "npx ionic cap build android --no-open && cd android && gradle assembleDebug && gradle assembleRelease"
+bat "npx ionic cap copy android && cd android && gradle assembleDebug && cd .."
           }
        }
 
